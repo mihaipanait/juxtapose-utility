@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-grid-list cols="2" rowHeight="100px">
+    <mat-grid-tile [style.background]="'lightblue'">
+      <file-upload [title]="'Before'" (fileSelected)="onBeforeFileSelected($event)" (fileRemoved)="onBeforeFileRemoved()"></file-upload>
+    </mat-grid-tile>
+    <mat-grid-tile [style.background]="'lightblue'">
+      <file-upload [title]="'After'" (fileSelected)="onAfterFileSelected($event)" (fileRemoved)="onAfterFileRemoved()"></file-upload>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
+<file-editor [baseImage]="beforeImage" [overlayImage]="afterImage" (generateLinks)="onGenerateLinks($event)" [width]="outputImageWidth" [height]="outputImageHeight"></file-editor>
+<imgix-link-generator [transformsArray]="transformsArray" [width]="outputImageWidth" [height]="outputImageHeight"></imgix-link-generator>

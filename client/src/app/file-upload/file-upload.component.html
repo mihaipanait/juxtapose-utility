@@ -1,0 +1,12 @@
+<div>
+    <label [for]="title" class="image-selector" *ngIf="filePath === null">
+        <span>{{title}} image:</span>
+        <br>
+        <span>Click to choose or drag image here.</span>
+        <input [id]="title" type="file" (change)="selectFile($event)" accept=".jpg, .png" />
+    </label>
+    <div class="uploaded-image" *ngIf="filePath !== null" [style.background-image]="filePath">
+        <span class="close" (click)="onClose()"></span>
+        <span *ngIf="title !== null" class="title">{{title}}</span>
+    </div>
+</div>

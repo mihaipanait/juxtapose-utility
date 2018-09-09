@@ -1,0 +1,68 @@
+:host {
+    text-align: center;
+    height: 100%;
+}
+
+:host(.dragover) {
+    background-color: darkgray;
+}
+
+.image-selector {
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.image-selector input[type="file"] {
+    visibility: hidden;
+    position: absolute;
+    left: 9999px;
+}
+
+.uploaded-image {
+    width: 250px;
+    height: 100px;
+    box-sizing: border-box;
+    border: solid 1px darkgray;
+    background-color: ghostwhite;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(248, 248, 255, 0.7);
+    color: dimgrey;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: ghostwhite;
+    color: dimgrey;
+    font-size: 0.7em;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 1.3em;
+    padding: 2px;
+    text-align: center;
+}
+
+.close:after {
+    content: '✖';
+    /* UTF-8 symbol */
+}
+
+.close:hover {
+    background-color: rgb(202, 202, 202);
+    color: rgb(71, 71, 71);
+}

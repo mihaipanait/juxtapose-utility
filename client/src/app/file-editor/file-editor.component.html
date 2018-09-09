@@ -1,0 +1,88 @@
+<mat-card class="editor">
+    <div class="image-container chess-background" [style.width.px]="width" [style.height.px]="height">
+        <img class="base-image centered-axis-xy" *ngIf="baseImage !== null" [src]="baseImage" [style.transform]="baseTransform" />
+        <img class="overlay-image centered-axis-xy" *ngIf="overlayImage !== null" [src]="overlayImage" [style.opacity]="overlayOpacity" [style.transform]="overlayTransform" />
+    </div>
+    <div class="controls">
+        <div class="opacity-controls">
+            <label>Overlay opacity: </label>
+            <mat-slider (input)="onOverlayOpacityInputChange($event)" thumbLabel min="0" max="1" step="0.1" [(ngModel)]="overlayOpacity"></mat-slider>
+        </div>
+        <mat-tab-group mat-stretch-tabs class="mat-elevation-z4">
+            <mat-tab label="Base Image">
+                    <mat-accordion>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Scale
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <mat-slider (input)="onBaseScaleInputChange($event)" class="scale-slider" thumbLabel min="0.1"
+                                    max="2.0" step="0.05" [(ngModel)]="baseScaleUniform"></mat-slider>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Position
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <label>x: </label>
+                                <mat-slider (input)="onBasePositionXInputChange($event)" thumbLabel min="0" max="1"
+                                    step="0.01" [(ngModel)]="basePositionX"></mat-slider>
+                                <label>y: </label>
+                                <mat-slider (input)="onBasePositionYInputChange($event)" thumbLabel min="0" max="1"
+                                    step="0.01" [(ngModel)]="basePositionY"></mat-slider>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Rotation
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <mat-slider (input)="onBaseRotationInputChange($event)" class="rotation-slider" thumbLabel
+                                    min="-45" max="45" step="0.1" [(ngModel)]="baseRotation"></mat-slider>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+            </mat-tab>
+            <mat-tab label="Overlay Image">
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Scale
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-slider (input)="onOverlayScaleInputChange($event)" class="scale-slider" thumbLabel min="0.1"
+                            max="2.0" step="0.05" [(ngModel)]="overlayScaleUniform"></mat-slider>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Position
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <label>x: </label>
+                        <mat-slider (input)="onOverlayPositionXInputChange($event)" thumbLabel min="0" max="1"
+                            step="0.01" [(ngModel)]="overlayPositionX"></mat-slider>
+                        <label>y: </label>
+                        <mat-slider (input)="onOverlayPositionYInputChange($event)" thumbLabel min="0" max="1"
+                            step="0.01" [(ngModel)]="overlayPositionY"></mat-slider>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Rotation
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-slider (input)="onOverlayRotationInputChange($event)" class="rotation-slider" thumbLabel
+                            min="-45" max="45" step="0.1" [(ngModel)]="overlayRotation"></mat-slider>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    <mat-card-actions>
+        <button mat-button (click)="onReset()">RESET</button>
+        <button mat-button color="primary" (click)="onGenerate()">GENERATE IMGIX LINKS</button>
+    </mat-card-actions>
+</mat-card>

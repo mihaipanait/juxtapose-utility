@@ -1,0 +1,48 @@
+:host {
+    margin-top: 20px;
+}
+
+.editor {
+    max-width: 500px;
+}
+
+.chess-background {
+    background: #e9e9e9;
+    background: linear-gradient(135deg, transparent 75%, rgba(255, 255, 255, .6) 0%) 0 0, linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, .6) 0%) 15px 15px, linear-gradient(135deg, transparent 75%, rgba(255, 255, 255, .6) 0%) 15px 15px, linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, .6) 0%) 0 0, #e9e9e9;
+    background-size: 30px 30px;
+}
+
+.image-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.image-container img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.image-container img:hover {
+    border: solid 1px yellow;
+    box-sizing: border-box;
+}
+
+.controls mat-slider {
+    width: 200px;
+}
+
+.controls mat-slider.rotation-slider, .controls mat-slider.scale-slider {
+    width: 450px;
+}
+
+.opacity-controls mat-slider {
+    margin-top: 20px;
+    width: 300px;
+}
+
+.opacity-controls label {
+    width: 200px;
+    display: inline-block;
+}
